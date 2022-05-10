@@ -1,18 +1,19 @@
 import React from "react";
-import { AppBar, Tabs,Tab, Toolbar } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { AppBar, Tabs, Tab, Toolbar, Link } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Header = () => {
   return (
     <>
-      <AppBar>
+      <AppBar style={{ color: "black" }}>
         <Toolbar>
           <ShoppingCartIcon></ShoppingCartIcon>
-          <Tabs  textColor="inherit">
-              <Tab label="Home"></Tab>
-              <Tab label="About"></Tab>
-              <Tab label="Product"></Tab>
-              <Tab label="Login"></Tab>
-          </Tabs>
+
+          <Link to="/" style={{ color: "red" }}>
+            Home
+          </Link>
+          <Link to="/about" style={{ color: "red" }}>
+            About
+          </Link>
         </Toolbar>
       </AppBar>
     </>
