@@ -10,14 +10,9 @@ export const Navbar = () => {
         <div>
           <h2>Masai Shop</h2>
         </div>
+
         <div>
-          <Link to="/login">Login</Link>
-        </div>
-        <div>
-          <Link to="/register">Register</Link>
-        </div>
-        <div>
-          <p>cart page</p>
+          <p>Cart</p>
         </div>
       </div>
     </>
