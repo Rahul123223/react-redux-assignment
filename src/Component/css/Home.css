@@ -3,7 +3,7 @@
     display: grid;
     /* border: 1px solid black; */
     grid-template-columns: 14% 80%;
-    background-color: rgb(213, 196, 196);
+    background-color: antiquewhite;
     grid-gap: 15px;
     width: 97%;
     margin: auto;
