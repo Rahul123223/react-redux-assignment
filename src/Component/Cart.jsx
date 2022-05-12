@@ -23,7 +23,6 @@ export const Cart = () => {
     const handleremove = (e) => {
      
         let id = e.target.id;
-        // console.log("The id is",id);
         fetch(`http://localhost:8080/cart/${id}`, {
             method: "DELETE",
         }).then((res) => res.json())
@@ -49,7 +48,6 @@ export const Cart = () => {
                             <Button variant="contained" color="secondary" id={e.id}
                                 onClick={handleremove}
                             >DELETE</Button>
-                            {/* <button id={e.id} onClick={handleremove}>DELETE</button> */}
                         </div>
                     </div>
                 </>

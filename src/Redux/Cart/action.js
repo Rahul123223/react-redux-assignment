@@ -1,4 +1,3 @@
-//write the action in the cart
 export const CART_LOADING='CART_LOADING';
 export const CART_ADDDATA="CART_ADDDATA";
 

@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 import './css/Home.css'
 import Button from "@mui/material/Button";
 
-//so here instead of writing all the action creator in here we simply write all these thing into the same file
-//and just export that particular file but for doing this we need the middlware so in here we are gone be using the
-//redux-thunks as the mw
 export const Home = () => {
     // const [data,setData]=useState([])
     const { product } = useSelector((state) => state.product);
@@ -18,7 +15,6 @@ export const Home = () => {
     const [cat, category] = useState('')
 
     console.log("the product is", product)
-    // console.log( JSON.stringify(product));
 
     const dispatch = useDispatch();
     const fetchData = () => {
@@ -29,7 +25,6 @@ export const Home = () => {
 
     }, [sort, cat])
     const handleSort = (e) => {
-        // console.log(e.target.value);
         changeSort(e.target.value);
 
     }

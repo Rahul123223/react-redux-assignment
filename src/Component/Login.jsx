@@ -3,9 +3,6 @@ import {useDispatch,useSelector} from 'react-redux';
 import {login_loading,login_success,login_failure} from '../Redux/Login/action'
 import { useNavigate } from 'react-router-dom';
 
-//awk that dispatch takes action object and dispatch the store
-//so for the action object we are using the action creator that we are already defined in the action.js file
-//so we remember that action creator always return the object so that why we are using the dispatch(action_creator)
 
 export const Login=()=>{
     const [username,setUser]=useState('');

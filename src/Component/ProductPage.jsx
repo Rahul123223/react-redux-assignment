@@ -9,8 +9,6 @@ import { Rating } from "@mui/material";
 // import StarIcon from '@mui/icons-material/Star';
 
 
-//see how the good redux is we cant make request to every time we just get the state into the store
-//so that's why redux improve performance optimization
 export const ProductPage = () => {
     const navigate = useNavigate()
     const { id } = useParams();
@@ -18,10 +16,8 @@ export const ProductPage = () => {
     const { isAuth } = useSelector((state) => state.login);
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    // console.log("the state is ",state);
 
-    // console.log("The product page is", product, "id is", id);
-    // console.log(para);
+
     const getLabelText = () => {
         return "Rating"
     }
@@ -31,8 +27,6 @@ export const ProductPage = () => {
                 <div id="product_info">
                     <div>
                         <img src={e.image} alt="" />
-                        {/* <h4>Rating:{e.rating.rate}</h4> */}
-                        {/* <h4>Count:{e.rating.count}</h4> */}
                         <Box sx={{
                             width: 500,
                             alignItems: 'center',
@@ -46,7 +40,6 @@ export const ProductPage = () => {
                                 value={e.rating.rate}
                                 precision={0.5}
                                 readOnly={true}
-                                // emptyIcon={<StarIcon sx={{ opacity: 0.90, alignItems: 'center' }} fontSize="inherit" />}
                             />
                         </Box>
 
@@ -72,17 +65,6 @@ export const ProductPage = () => {
                         >
                             ADD TO CART
                         </Button>
-                        {/* <button
-
-                            onClick={() => {
-                                if (isAuth)
-                                    alert("Product addded");
-                                else {
-                                    alert("Login before added in the cart")
-                                    navigate('/login');
-                                }
-                            }}
-                        >ADD TO CART</button> */}
                     </div>
                 </div>
             ))}
