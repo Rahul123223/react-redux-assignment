@@ -14,21 +14,15 @@ export const Navbar = () => {
           <Link to="/">Home</Link>
         </div>
         <div>
-         <h2>Masai shop</h2>
+          <h2>Masai Shop</h2>
         </div>
-        <div>
-          <Link to="/login">Login</Link>
-        </div>
-        <div>
-          <Link to="/register">Register</Link>
-        </div>
+
         <div>
           <Badge color="secondary" style={{ cursor: "pointer" }}>
             <ShoppingCartIcon
               onClick={() => (true ? navigate("/cart") : "Not true")}
             />
           </Badge>
-          {/* <Link to='/cart'>Cart</Link> */}
         </div>
       </div>
     </>

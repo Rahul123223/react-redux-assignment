@@ -4,8 +4,9 @@
     width: 95%;
     margin: auto;
     justify-content: space-between;
-    background-color: azure;
     padding: 10px;
+    border-radius: 10px;
+   background-color: azure;
 }
 div>#shop{
     border: 4px solid black;
