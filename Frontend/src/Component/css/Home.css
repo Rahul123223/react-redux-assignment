@@ -29,6 +29,7 @@
     cursor: pointer;
 }
 img{
+    height: 200px;
     width: 70%;
     padding: 20px;
 }
