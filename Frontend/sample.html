@@ -1,33 +1,13 @@
-<button id="rzp-button1">Pay</button>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<button onclick="getOrder()"> Get Request</button>
 <script>
-var options = {
-    "key": "rzp_test_tr1UQTKJgtFAu9", // Enter the Key ID generated from the Dashboard
-    "amount": "29935", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Acme Corp",
-    "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
-    "order_id": "order_JUmoU57lvHpaAE", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
-    "prefill": {
-        "name": "Gaurav Kumar",
-        "email": "gaurav.kumar@example.com",
-        "contact": "9999999999"
-    },
-    "notes": {
-        "address": "Razorpay Corporate Office"
-    },
-    "theme": {
-        "color": "#3399cc"
+    function getOrder() {
+        fetch(`http://localhost:5000/razor`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"Application/json"
+            }
+        }).then((res)=>res.json())
+        .then(res=>console.log("The res is",res))
+        .catch(err=>console.log("The error is",err));
     }
-};
-var rzp1 = new Razorpay(options);
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
 </script>
-
-<form><script src="https://checkout.razorpay.com/v1/payment-button.js" 
-    data-payment_button_id="pl_JUybSYJ2JEM3kl" async> </script> </form>

@@ -1,12 +1,19 @@
 #payment{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: grid;
-    grid-template-columns: 32% 50%;
+    grid-template-columns: 35% 45%;
+    margin: 15px;
     margin: auto;
-    width: 50%;
+    width: 42%;
     margin-top: 10px;
+    border-radius: 15px;
+
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 #payment>div{
-    border: 1px solid black;
-    margin: 10px;
+    /* border: 1px solid black; */
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    
 }
