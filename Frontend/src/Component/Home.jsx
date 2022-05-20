@@ -120,7 +120,7 @@ export const Home = () => {
               <h4>Title:{e.title}</h4>
               <h4>Price:{e.price}₹</h4>
               <h5>Category:{e.category}</h5>
-              <Link to={`/product-page/${e._id}`}>know More...</Link>
+              <Link to={`/product-page/${e._id}`}>Show Details...</Link>
             </div>
           ))}
         </div>
