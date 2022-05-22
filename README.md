@@ -11,12 +11,15 @@ A E-commerce website where you can buy all the things like men's clothing,women'
 ## Landing Page :
 You can do filtering by price and brand in Landing page.
 At bottom pagination is also there,where you can click any button and able to see next product of that section.
+<img src="https://drive.google.com/file/d/1wYDnUXC0Q8mt2D_ROuwi5cYT7Ysb7tjE/view?usp=sharing">
 
 
 ## Product's Page :
+<img src="https://drive.google.com/file/d/1-HxAHq5TTsENhwQe_rjQSVLN27zpHDqk/view?usp=sharing">
 
 
 
 ## Cart Page :
 In this page you can find all the products you have added to the cart.If you want to delete the product from cart you can do by just clicking on delete button.
+<img src="https://drive.google.com/file/d/1hDcoDaUNFOE7oWj3rxCWIFN4CZaYC6CH/view?usp=sharing">
 
