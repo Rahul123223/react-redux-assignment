@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./css/login.css"
 import {
   login_loading,
   login_success,
   login_failure,
 } from "../Redux/Login/action";
 import { useNavigate } from "react-router-dom";
+
 
 export const Login = () => {
   const [username, setUser] = useState("");
@@ -37,21 +39,26 @@ export const Login = () => {
   };
   return (
     <>
-      <input
-        type="text"
-        placeholder="Enter the useraname..."
-        onChange={(e) => setUser(e.target.value)}
-        value={username}
-      />{" "}
-      <br />
-      <input
-        type="text"
-        placeholder="Enter the password"
-        onChange={(e) => setPass(e.target.value)}
-        value={password}
-      />{" "}
-      <br />
-      <button onClick={handleSubmit}>Submit</button>
+      <div className="login">
+        <h1>Login Here...</h1>
+        <input
+          type="text"
+          placeholder="Enter the useraname..."
+          onChange={(e) => setUser(e.target.value)}
+          value={username}
+          className="ip_tags"
+        />{" "}
+        <br />
+        <input
+          type="text"
+          placeholder="Enter the password"
+          onChange={(e) => setPass(e.target.value)}
+          value={password}
+          className="ip_tags"
+        />{" "}
+        <br />
+        <button className="ip_tags" onClick={handleSubmit}>Submit</button>
+      </div>
     </>
   );
 };

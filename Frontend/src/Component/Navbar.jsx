@@ -24,6 +24,9 @@ import HomeIcon from "@mui/icons-material/Home";
 // import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+
+// import { Login } from "./Login";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -198,7 +201,24 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-              <HomeIcon
+             Register <AssignmentIndOutlinedIcon
+                onClick={() => (true ? navigate("/register") : "Not true")}
+              />
+            </Badge>
+          </Box>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Badge color="secondary" style={{ cursor: "pointer" }}>
+             Login <AssignmentIndOutlinedIcon
+                onClick={() => (true ? navigate("/login") : "Not true")}
+              />
+            </Badge>
+          </Box>
+          
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Badge color="secondary" style={{ cursor: "pointer" }}>
+             Home <HomeIcon
                 onClick={() => (true ? navigate("/") : "Not true")}
               />
             </Badge>

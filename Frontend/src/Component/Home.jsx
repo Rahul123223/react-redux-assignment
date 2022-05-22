@@ -21,7 +21,7 @@ export const Home = () => {
   console.log("The product is", product);
   const catogery = [
     { value: "men's clothing", type: "Men" },
-    { value: "jewelery", type: "Women" },
+    { value: "jewelery", type: "Jewellary" },
     { value: "electronics", type: "Electronics" },
     { value: "women's clothing", type: "Women" },
   ];
@@ -47,6 +47,8 @@ export const Home = () => {
   const handlePage = (e, value) => {
     setPage(value);
   };
+
+ 
 
   return (
     <>
