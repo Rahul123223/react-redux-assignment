@@ -10,6 +10,7 @@ import { Pagecheck } from "./Component/Pagecheck";
 import { Payment } from "./Component/Payment";
 import { Category } from "./Component/Catogery";
 import { Otp } from "./Component/Otp";
+import { Footer } from "./Component/Footer";
 
 const PrivateRoute = ({ isAuthenticated, children }) => {
   return isAuthenticated ? children : <Navigate to="/login"></Navigate>;
@@ -39,6 +40,7 @@ function App() {
         <Route path="/category/:cat" element={<Category />}></Route>
         <Route path="/otp" element={<Otp />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 }

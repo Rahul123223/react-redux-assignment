@@ -74,3 +74,36 @@ a {
 a:hover {
   color: cadetblue;
 }
+
+/* responsive */
+
+/* mobile-phones */
+@media (max-width: 768px) {
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  #container {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #show_product {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+@media (max-width: 468px) {
+  #show_product {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}

@@ -4,6 +4,7 @@ export const Register = () => {
   return (
     <>
       <div className="register">
+        <h1>Register Here...</h1>
         <div className="reg_tags">
           <form action="">
             <label htmlFor="text">Name</label>

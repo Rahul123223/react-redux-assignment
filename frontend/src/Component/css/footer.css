@@ -1,0 +1,33 @@
+#footer_cont {
+  margin-top: 150px;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  justify-content: space-evenly;
+}
+.box-one {
+  /* border: 1px solid red; */
+  color: white;
+  height: 300px;
+  margin-left: 50px;
+}
+.box-one > p{
+    font-size: 13px;
+}
+@media(max-width:448px){
+  #footer_cont{
+    background-color: black;
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+@media(max-width:768px){
+  #footer_cont{
+    background-color: black;
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}

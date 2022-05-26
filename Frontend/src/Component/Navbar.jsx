@@ -24,7 +24,8 @@ import HomeIcon from "@mui/icons-material/Home";
 // import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
+import { Link } from "react-router-dom"
 
 // import { Login } from "./Login";
 
@@ -135,11 +136,12 @@ export const Navbar = () => {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
+          
+          <Badge color="secondary" style={{ cursor: "pointer" }}>
+            <HomeIcon onClick={() => (true ? navigate("/") : "Not true")} />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+      <Link to="/"><p>Home</p></Link>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -147,13 +149,43 @@ export const Navbar = () => {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge color="secondary" style={{ cursor: "pointer" }}>
+            <AssignmentIndOutlinedIcon
+              onClick={() => (true ? navigate("/register") : "Not true")}
+            />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+       <Link to="/register"><p>Register</p></Link> 
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge color="secondary" style={{ cursor: "pointer" }}>
+            <AssignmentIndOutlinedIcon
+              onClick={() => (true ? navigate("/login") : "Not true")}
+            />
+          </Badge>
+        </IconButton>
+        <Link to="/login"><p>Login</p></Link> 
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge color="secondary" style={{ cursor: "pointer" }}>
+            <ShoppingCartIcon
+              onClick={() => (true ? navigate("/cart") : "Not true")}
+            />
+          </Badge>
+        </IconButton>
+        <Link to="/cart"><p>Cart</p></Link> 
+      </MenuItem>
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -164,7 +196,7 @@ export const Navbar = () => {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
 
@@ -201,29 +233,34 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-             Home <HomeIcon
+             
+            <Link to="/"><HomeIcon
                 onClick={() => (true ? navigate("/") : "Not true")}
-              />
+              /></Link>
+              <Link to="/">Home</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-             Register <AssignmentIndOutlinedIcon
+           
+              <Link to="/register"><AssignmentIndOutlinedIcon
                 onClick={() => (true ? navigate("/register") : "Not true")}
-              />
+              /></Link>
+              <Link to="/register">Register</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-             Login <AssignmentIndOutlinedIcon
+              
+            <Link to="/login"><AssignmentIndOutlinedIcon
                 onClick={() => (true ? navigate("/login") : "Not true")}
-              />
+              /></Link>
+              <Link to="/login">Login</Link>
             </Badge>
           </Box>
-          
-         
+
           {/* <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -269,11 +306,10 @@ export const Navbar = () => {
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Badge color="secondary" style={{ cursor: "pointer" }}>
-              <ShoppingCartIcon
+          <Link to="/cart"><AssignmentIndOutlinedIcon
                 onClick={() => (true ? navigate("/cart") : "Not true")}
-              />
-            </Badge>
+              /></Link>
+              <Link to="/cart">Cart</Link>
           </Box>
         </Toolbar>
       </AppBar>
