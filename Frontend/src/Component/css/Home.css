@@ -8,6 +8,7 @@
     margin: auto;
     margin-top: 10px;
     padding: 12px;
+    
 }
 #container>div{
     /* border: 1px dotted black; */
@@ -16,6 +17,7 @@
 /* this is for the display the product  */
 #show_product{
     /* border: 1px solid black; */
+    
     display: grid;
     grid-template-columns: repeat(3,33%);
 }
