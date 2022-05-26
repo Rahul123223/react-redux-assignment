@@ -201,6 +201,14 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
+             Home <HomeIcon
+                onClick={() => (true ? navigate("/") : "Not true")}
+              />
+            </Badge>
+          </Box>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Badge color="secondary" style={{ cursor: "pointer" }}>
              Register <AssignmentIndOutlinedIcon
                 onClick={() => (true ? navigate("/register") : "Not true")}
               />
@@ -215,15 +223,8 @@ export const Navbar = () => {
             </Badge>
           </Box>
           
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Badge color="secondary" style={{ cursor: "pointer" }}>
-             Home <HomeIcon
-                onClick={() => (true ? navigate("/") : "Not true")}
-              />
-            </Badge>
-          </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+         
+          {/* <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -253,7 +254,8 @@ export const Navbar = () => {
             >
               <AccountCircle />
             </IconButton>
-          </Box>
+          </Box> */}
+          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"

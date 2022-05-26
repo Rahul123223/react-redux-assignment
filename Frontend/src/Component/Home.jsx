@@ -48,8 +48,6 @@ export const Home = () => {
     setPage(value);
   };
 
- 
-
   return (
     <>
       <div id="container">
@@ -118,11 +116,13 @@ export const Home = () => {
         <div id="show_product">
           {product.map((e) => (
             <div key={e._id}>
-              <img src={e.image} alt="" />
+              <Link to={`/product-page/${e._id}`}>
+                <img src={e.image} alt="" />
+              </Link>
               <h4>Title:{e.title}</h4>
               <h4>Price:{e.price}₹</h4>
               <h5>Category:{e.category}</h5>
-              <Link to={`/product-page/${e._id}`}>Show Details...</Link>
+              <Link to={`/product-page/${e._id}`}>More Details..</Link>
             </div>
           ))}
         </div>

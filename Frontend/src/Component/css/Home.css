@@ -1,62 +1,76 @@
-/* //this is  for the main container */
-#container{
-    display: grid;
-    /* border: 1px solid black; */
-    grid-template-columns: 14% 80%;
-    grid-gap: 15px;
-    width: 97%;
-    margin: auto;
-    margin-top: 10px;
-    padding: 12px;
-    
+#container {
+  display: grid;
+  /* border: 1px solid black; */
+  grid-template-columns: 14% 80%;
+  grid-gap: 15px;
+  width: 97%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 12px;
 }
-#container>div{
-    /* border: 1px dotted black; */
-    border-radius: 15px;
+#container > div {
+  /* border: 1px dotted black; */
+  border-radius: 15px;
 }
 /* this is for the display the product  */
-#show_product{
-    /* border: 1px solid black; */
-    
-    display: grid;
-    grid-template-columns: repeat(3,33%);
+#show_product {
+  /* border: 1px solid black; */
+
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
 }
-#show_product>div{
-    border-style: ridge;
-    border: 1px  black;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-    padding:10px;
-    margin: 20px;
-    border-radius: 20px;
-    cursor: pointer;
+#show_product > div {
+  border-style: ridge;
+  border: 1px black;
+  /* box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px; */
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+  /* border-radius: 1px solid gray; */
+  border: 1px solid rgb(208, 195, 195);
+  cursor: pointer;
 }
-img{
-    height: 200px;
-    width: 70%;
-    padding: 20px;
+img {
+  height: 200px;
+  width: 70%;
+  padding: 30px 50px;
+  /* border: 1px solid red; */
 }
-#catogery{
-    /* border-style: ridge; */
-    /* border: 1px solid black; */
-    margin-top: 17px;
-    padding: 10px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-    height: 95.5%;
-    
+img:hover {
+  transition: all 0.5 ease 0s;
+  transform: scale(1.2);
 }
-#catogery>div{
-    cursor: pointer;
+
+#catogery {
+  /* border-style: ridge; */
+  /* border: 1px solid black; */
+  margin-top: 17px;
+  padding: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  height: 95.5%;
+  background-color: antiquewhite;
 }
-button{
-    cursor: pointer;
-    padding: 4px;
-    margin: 4px;
-    border-radius: 5px;
+#catogery > div {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 5px;
 }
 /* //This is for the pagination */
-#paginate{
-    /* border: 1px solid black; */
-    margin-bottom: 5px;
-    width: 28%;
-    margin: auto;
+#paginate {
+  /* border: 1px solid black; */
+  margin-bottom: 5px;
+  width: 28%;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: cadetblue;
 }
