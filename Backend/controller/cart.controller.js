@@ -8,6 +8,7 @@ router.get('', async (req,res)=>{
 })
 router.post('',async (req,res)=>{
     const Cart= await cart.create(req.body);
+    // console.log(req.body);
 
     return res.send(Cart);
 })
