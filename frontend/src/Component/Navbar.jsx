@@ -1,5 +1,50 @@
 // import "./css/navbar.css";
 // import { Link } from "react-router-dom";
+// import { useSelector } from "react-redux";
+// import Badge from "@material-ui/core/Badge";
+// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+// import { useNavigate } from "react-router-dom";
+
+// export const Navbar = () => {
+//   const navigate = useNavigate();
+//   const { item } = useSelector((state) => state.cart);
+
+//   return (
+//     <>
+//       <div id="navbar">
+//         <div className="navbarLink">
+//           <Link to="/" className="link2">
+//             Home
+//           </Link>
+//         </div>
+//         <div>
+//           <input type="text" placeholder="Serch Bar" />
+//         </div>
+//         <div className="navbarLink">
+//           <Link to="/login" className="link2">
+//             Login
+//           </Link>
+//         </div>
+//         <div className="navbarLink">
+//           <Link to="/register" className="link2">
+//             Register
+//           </Link>
+//         </div>
+//         <div>
+//           <Badge color="secondary" style={{ cursor: "pointer" }}>
+//             <ShoppingCartIcon
+//               onClick={() => (true ? navigate("/cart") : "Not true")}
+//             />
+//             : {item}
+//           </Badge>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// import "./css/navbar.css";
+// import { Link } from "react-router-dom";
 
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
@@ -14,9 +59,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useSelector } from "react-redux";
+
+// import AccountCircle from "@mui/icons-material/AccountCircle";
+// import MailIcon from "@mui/icons-material/Mail";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import HomeIcon from "@mui/icons-material/Home";
 
@@ -71,6 +118,9 @@ export const Navbar = () => {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  // const navigate = useNavigate();
+    const { item } = useSelector((state) => state.cart);
 
   const navigate = useNavigate();
 
@@ -182,10 +232,10 @@ export const Navbar = () => {
             <ShoppingCartIcon
               onClick={() => (true ? navigate("/cart") : "Not true")}
             />
+            : {item}
           </Badge>
         </IconButton>
         <Link to="/cart">
-          <p>Cart</p>
         </Link>
       </MenuItem>
     </Menu>
@@ -268,11 +318,14 @@ export const Navbar = () => {
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Link to="/cart">
-              <AssignmentIndOutlinedIcon
-                onClick={() => (true ? navigate("/cart") : "Not true")}
-              />
+            <Badge color="secondary" style={{ cursor: "pointer" }}>
+            <ShoppingCartIcon
+              onClick={() => (true ? navigate("/cart") : "Not true")}
+            />
+            : {item}
+          </Badge>
             </Link>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart"></Link>
           </Box>
         </Toolbar>
       </AppBar>
