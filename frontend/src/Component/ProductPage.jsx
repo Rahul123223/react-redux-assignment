@@ -30,7 +30,7 @@ export const ProductPage = () => {
                 sx={{
                   width: 500,
                   alignItems: "center",
-                  border: "1px solid black",
+                  // border: "1px solid black",
                   display: "flex",
                 }}
               >
