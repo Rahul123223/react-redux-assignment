@@ -59,7 +59,7 @@ export const ProductPage = () => {
                 variant="contained"
                 color="secondary"
                 onClick={() => {
-                  if (true) {
+                  if (isAuth==true) {
                     alert("Added succesfully in the cart...");
                     dispatch(cart_add(e));
                   } else {
