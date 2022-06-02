@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart_get, cart_total, cart_update } from "../Redux/Cart/action";
 import Box from "@mui/material/Box";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 export const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -45,7 +46,8 @@ export const Cart = () => {
       });
   };
   const checkOut = () => {
-    alert("Welcome to the checkout page");
+    // alert("Welcome to the checkout page");
+    // <Alert>{"Weccome to the checkout page"}</Alert>
     navigate("/checkout");
   };
   return (
@@ -104,7 +106,7 @@ export const Cart = () => {
               height: 100,
             }}
           >
-            <Button variant="contained" color="secondary" onClick={checkOut}>
+            <Button variant="contained" color="secondary" onClick={checkOut} >
               Proceed To checkout
             </Button>
           </Box>

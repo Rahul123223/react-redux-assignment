@@ -13,9 +13,9 @@
   border: 1px rgb(198, 17, 17);
   margin: 10px;
   border-radius: 15px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   #check_containerdiv {
     display: block;
     flex-wrap: wrap;
@@ -33,3 +33,5 @@ div > h2 {
   padding: 12px;
   margin-left: 45px;
 }
+
+

@@ -71,6 +71,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 import { Link } from "react-router-dom";
+// import {styled} from "styled-components"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -120,7 +121,9 @@ export const Navbar = () => {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   // const navigate = useNavigate();
-    const { item } = useSelector((state) => state.cart);
+  const { item } = useSelector((state) => state.cart);
+  const { isAuth } = useSelector((state) => state.login);
+
 
   const navigate = useNavigate();
 
@@ -228,15 +231,22 @@ export const Navbar = () => {
           aria-label="show 17 new notifications"
           color="inherit"
         >
+          {/* true ? navigate("/cart") : "Not true"  */}
           <Badge color="secondary" style={{ cursor: "pointer" }}>
             <ShoppingCartIcon
-              onClick={() => (true ? navigate("/cart") : "Not true")}
+              onClick={() => {
+                if (isAuth == true) {
+                  navigate("/cart")
+                } else {
+                  alert("Please login first..");
+                  navigate("/login");
+                }
+              }}
             />
             : {item}
           </Badge>
         </IconButton>
-        <Link to="/cart">
-        </Link>
+        <Link to="/cart"></Link>
       </MenuItem>
     </Menu>
   );
@@ -274,31 +284,27 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-              <Link to="/">
+             
                 <HomeIcon onClick={() => (true ? navigate("/") : "Not true")} />
-              </Link>
+         
               <Link to="/">Home</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-              <Link to="/register">
                 <AssignmentIndOutlinedIcon
                   onClick={() => (true ? navigate("/register") : "Not true")}
-                />
-              </Link>
+                />          
               <Link to="/register">Register</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-              <Link to="/login">
                 <AssignmentIndOutlinedIcon
                   onClick={() => (true ? navigate("/login") : "Not true")}
                 />
-              </Link>
               <Link to="/login">Login</Link>
             </Badge>
           </Box>
@@ -317,15 +323,22 @@ export const Navbar = () => {
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link to="/cart">
-            <Badge color="secondary" style={{ cursor: "pointer" }}>
-            <ShoppingCartIcon
-              onClick={() => (true ? navigate("/cart") : "Not true")}
-            />
-            : {item}
-          </Badge>
-            </Link>
-            <Link to="/cart"></Link>
+      
+              <Badge color="secondary" style={{ cursor: "pointer" }}>
+                <ShoppingCartIcon
+                  onClick={() => {
+                    if (isAuth == true) {
+                      navigate("/cart")
+                    } else {
+                      alert("Please login first..");
+                      navigate("/login");
+                    }
+                  }}
+                />
+                : {item}
+              </Badge>
+      
+            {/* <Link to="/cart"></Link>  */}
           </Box>
         </Toolbar>
       </AppBar>

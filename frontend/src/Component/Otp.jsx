@@ -29,7 +29,7 @@ export const Otp = () => {
           onClick={() => {
             if (opt === "1234") {
               alert("Payment Successful");
-              navigate("/");
+              navigate("/thankyou");
             } else {
               alert("Something went wrong please try again...");
             }
