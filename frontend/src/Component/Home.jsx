@@ -67,7 +67,7 @@ export const Home = () => {
 
   return (
     <>
-    <div>
+    <div id="slider">
       <Slider></Slider>
     </div>
       <div id="container">
