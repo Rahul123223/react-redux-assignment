@@ -24,14 +24,14 @@ export const getProductData = (sort, category, page) => (dispatch) => {
   console.log("the category is ", category.length);
   if (category.length == 0) {
     dispatch(getProductLoading());
-    fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/?&order=${sort}&page=${page}`)
+    fetch(`https://e-comm1234.herokuapp.com/products?&order=${sort}&page=${page}`)
       .then((res) => res.json())
       .then((res) => dispatch(getProduct(res)))
       .catch((err) => dispatch(getProductError(err)));
   } else {
     dispatch(getProductLoading());
     fetch(
-      `https://rg-ccommerce-app-heroku.herokuapp.com/products?category=${category}&order=${sort}&page=${page}`
+      `https://e-comm1234.herokuapp.com/products?category=${category}&order=${sort}&page=${page}`
     )
       .then((res) => res.json())
       .then((res) => dispatch(getProduct(res)))

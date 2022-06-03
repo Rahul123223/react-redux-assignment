@@ -91,7 +91,7 @@ export function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("https://rg-ccommerce-app-heroku.herokuapp.com/register", {
+    fetch("https://e-comm1234.herokuapp.com/login", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {

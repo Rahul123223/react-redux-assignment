@@ -8,61 +8,6 @@ import {
 } from "../Redux/Login/action";
 import { useNavigate } from "react-router-dom";
 
-// export const Login = () => {
-//   const [username, setUser] = useState("");
-//   const [password, setPass] = useState("");
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-
-//   const handleSubmit = () => {
-//     console.log(username, password);
-//     const useDetails = {
-//       username,
-//       password,
-//     };
-//     dispatch(login_loading());
-//     fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/login`, {
-//       method: "POST",
-//       body: JSON.stringify(useDetails),
-//       headers: {
-//         "Content-type": "Application/json",
-//       },
-//     })
-//       .then((res) => res.json())
-//       .then((res) => {
-//         console.log("The res is", res);
-//         dispatch(login_success(res.token));
-//         navigate("/");
-//       })
-//       .catch((err) => dispatch(login_failure()));
-//   };
-//   return (
-//     <>
-//       <div className="login">
-//         <h1>Login Here...</h1>
-//         <input
-//           type="text"
-//           placeholder="Enter the useraname..."
-//           onChange={(e) => setUser(e.target.value)}
-//           value={username}
-//           className="ip_tags"
-//         />{" "}
-//         <br />
-//         <input
-//           type="text"
-//           placeholder="Enter the password"
-//           onChange={(e) => setPass(e.target.value)}
-//           value={password}
-//           className="ip_tags"
-//         />{" "}
-//         <br />
-//         <button className="ip_tags" onClick={handleSubmit}>
-//           Submit
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
 
 import * as React from 'react';
 
@@ -80,19 +25,6 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const theme = createTheme();
 
@@ -113,9 +45,10 @@ export const Login=()=> {
       email,
       password,
     };
+    
   
   dispatch(login_loading());
-    fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/login`, {
+    fetch(`https://e-comm1234.herokuapp.com/login `, {
       method: "POST",
       body: JSON.stringify(useDetails),
       headers: {

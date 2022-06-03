@@ -6,7 +6,7 @@ export const Category = () => {
   const [sort, changeSort] = useState(1);
 
   const getData = () => {
-    fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/products?category=${cat}&order=${sort}&page=1`)
+    fetch(`https://e-comm1234.herokuapp.com/products?category=${cat}&order=${sort}&page=1`)
       .then((res) => res.json())
       .then((res) => setData(res))
       .catch((err) => console.log(err));

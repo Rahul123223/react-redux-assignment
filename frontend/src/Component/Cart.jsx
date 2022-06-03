@@ -15,7 +15,7 @@ export const Cart = () => {
 
   const dispatch = useDispatch();
   const getData = () => {
-    fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/cart`)
+    fetch(`https://e-comm1234.herokuapp.com/cart`)
       .then((res) => res.json())
       .then((res) => setCart(res))
       .catch((err) => console.log(err));
@@ -34,7 +34,7 @@ export const Cart = () => {
   console.log("The state is", state);
   const handleremove = (e) => {
     let id = e.target.id;
-    fetch(`https://rg-ccommerce-app-heroku.herokuapp.com/${id}`, {
+    fetch(`https://e-comm1234.herokuapp.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
