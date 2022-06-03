@@ -30,7 +30,7 @@ img {
   padding: 30px 50px;
   /* border: 1px solid red; */
 }
-img:hover {
+#show_product img:hover {
   transition: all 0.5 ease 0s;
   transform: scale(1.2);
 }

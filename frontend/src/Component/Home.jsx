@@ -15,8 +15,25 @@ import {
   MenuItem,
 } from "@mui/material";
 import React from "react";
+import {Slider} from "./Slider";
 
 export const Home = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const { product } = useSelector((state) => state.product);
   console.log("The product is", product);
   const catogery = [
@@ -50,6 +67,9 @@ export const Home = () => {
 
   return (
     <>
+    <div>
+      <Slider></Slider>
+    </div>
       <div id="container">
         <div id="catogery">
           <h4>Catogery</h4>
