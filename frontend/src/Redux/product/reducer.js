@@ -3,7 +3,7 @@ import { GET_PRODUCT, GET_PRODUCT_LOADING, GET_PRODUCT_ERROR } from "./action";
 const initialState = {
   error: false,
   loading: false,
-  product: [],
+  product: []
 };
 
 export const productReducer = (store = initialState, { type, payload }) => {

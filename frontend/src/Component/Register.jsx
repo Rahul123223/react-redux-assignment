@@ -1,45 +1,3 @@
-// import "./css/register.css";
-
-// export const Register = () => {
-//   return (
-//     <>
-//       <div className="register">
-//         <h1>Register Here...</h1>
-//         <div className="reg_tags">
-//           <form action="">
-//             <label htmlFor="text">Name</label>
-//             <input
-//               type="text"
-//               className="inp_tags"
-//               placeholder="enter your name here..."
-//             />
-//             <label htmlFor="password">Password</label>
-//             <input
-//               type="password"
-//               className="inp_tags"
-//               placeholder="enter your password here..."
-//             />
-//             <label htmlFor="email">Email</label>
-//             <input
-//               type="text"
-//               className="inp_tags"
-//               placeholder="enter your email here..."
-//             />
-//             <label htmlFor="age">Age</label>
-//             <input
-//               type="number"
-//               className="inp_tags"
-//               placeholder="enter your age here..."
-//             />
-//             <label htmlFor="data">Date</label>
-//             <input type="date" className="inp_tags" />
-//             <input type="submit" className="inp_tags" />
-//           </form>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -54,21 +12,13 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import "./css/register.css"
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "./css/register.css";
 
 const theme = createTheme();
 
@@ -82,16 +32,28 @@ export function Register() {
   };
 
   const [user, setuser] = useState(initstate);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIstSubmit] = useState(false);
+
+  const { isAuth } = useSelector((state) => state.login);
+
+  if (isAuth == true) {
+    navigate("/login");
+  }
+
+  const myAlert = () => {
+    toast("Something went wron please try again..");
+  };
 
   const handlechange = (e) => {
     const { name, value } = e.target;
 
-    setuser((prev) => ({ ...prev, [name]: value }));
+    setuser({ ...user, [name]: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("https://e-comm1234.herokuapp.com/login", {
+    fetch("https://ecom-app-herok.herokuapp.com/register", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -103,10 +65,66 @@ export function Register() {
         return navigate("/login");
       })
       .catch((err) => {
-        alert("something went wrong try again !");
+        // alert("something went wrong try again !");
+        // console.log("error",err)
+        toast.error("Something went wrong please try again..", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
+    <ToastContainer
+      position="top-left"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />;
+
+    setFormErrors(validate(user));
+    setIstSubmit(true);
   };
+
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(user);
+    }
+  }, [formErrors]);
+
   const { first_name, last_name, email, password } = user;
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.first_name) {
+      errors.first_name = "first_name is required!";
+    }
+    if (!values.last_name) {
+      errors.last_name = "last_name is required!";
+    }
+    if (!values.email) {
+      errors.email = "email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    if (!values.password) {
+      errors.password = "Password is required";
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 characters";
+    } else if (values.password.length > 10) {
+      errors.password = "Password cannot exceed more than 10 characters";
+    }
+    return errors;
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -145,6 +163,7 @@ export function Register() {
                   onChange={handlechange}
                   autoFocus
                 />
+                <p className="ptag">{formErrors.first_name}</p>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -157,6 +176,7 @@ export function Register() {
                   onChange={handlechange}
                   autoComplete="family-name"
                 />
+                <p className="ptag">{formErrors.last_name}</p>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -169,6 +189,7 @@ export function Register() {
                   onChange={handlechange}
                   autoComplete="email"
                 />
+                <p className="ptag">{formErrors.email}</p>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -182,6 +203,7 @@ export function Register() {
                   onChange={handlechange}
                   autoComplete="new-password"
                 />
+                <p className="ptag">{formErrors.password}</p>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel

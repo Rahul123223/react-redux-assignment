@@ -4,7 +4,7 @@ import "./css/otp.css";
 import { useNavigate } from "react-router-dom";
 
 import * as React from "react";
-import Alert from "@mui/material/Alert";
+// import Alert from "@mui/material/Alert";
 
 export const Otp = () => {
   const [opt, setOtp] = useState("");
@@ -28,10 +28,10 @@ export const Otp = () => {
           }}
           onClick={() => {
             if (opt === "1234") {
-              alert("Payment Successful");
-              navigate("/thankyou");
+              alert("Payment Successful Thank You ! ❤😍");
+              navigate("/");
             } else {
-              alert("Something went wrong please try again...");
+              alert("Invalid OTP please try again... 😒");
             }
           }}
         >

@@ -71,6 +71,9 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import {styled} from "styled-components"
 
 const Search = styled("div")(({ theme }) => ({
@@ -124,8 +127,24 @@ export const Navbar = () => {
   const { item } = useSelector((state) => state.cart);
   const { isAuth } = useSelector((state) => state.login);
 
-
   const navigate = useNavigate();
+
+  const alerT = () => {
+    if (isAuth == true) {
+      navigate("/cart");
+    } else {
+      toast.error("Please login first..", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/login");
+    }
+  };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -233,17 +252,7 @@ export const Navbar = () => {
         >
           {/* true ? navigate("/cart") : "Not true"  */}
           <Badge color="secondary" style={{ cursor: "pointer" }}>
-            <ShoppingCartIcon
-              onClick={() => {
-                if (isAuth == true) {
-                  navigate("/cart")
-                } else {
-                  alert("Please login first..");
-                  navigate("/login");
-                }
-              }}
-            />
-            : {item}
+            <ShoppingCartIcon onClick={alerT} />: {item}
           </Badge>
         </IconButton>
         <Link to="/cart"></Link>
@@ -284,27 +293,26 @@ export const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-             
-                <HomeIcon onClick={() => (true ? navigate("/") : "Not true")} />
-         
+              <HomeIcon onClick={() => (true ? navigate("/") : "Not true")} />
+
               <Link to="/">Home</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-                <AssignmentIndOutlinedIcon
-                  onClick={() => (true ? navigate("/register") : "Not true")}
-                />          
+              <AssignmentIndOutlinedIcon
+                onClick={() => (true ? navigate("/register") : "Not true")}
+              />
               <Link to="/register">Register</Link>
             </Badge>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Badge color="secondary" style={{ cursor: "pointer" }}>
-                <AssignmentIndOutlinedIcon
-                  onClick={() => (true ? navigate("/login") : "Not true")}
-                />
+              <AssignmentIndOutlinedIcon
+                onClick={() => (true ? navigate("/login") : "Not true")}
+              />
               <Link to="/login">Login</Link>
             </Badge>
           </Box>
@@ -323,21 +331,22 @@ export const Navbar = () => {
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-      
-              <Badge color="secondary" style={{ cursor: "pointer" }}>
-                <ShoppingCartIcon
-                  onClick={() => {
-                    if (isAuth == true) {
-                      navigate("/cart")
-                    } else {
-                      alert("Please login first..");
-                      navigate("/login");
-                    }
-                  }}
-                />
-                : {item}
-              </Badge>
-      
+            <Badge color="secondary" style={{ cursor: "pointer" }}>
+              <ShoppingCartIcon onClick={alerT} />
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              ></ToastContainer>
+              : {item}
+            </Badge>
+
             {/* <Link to="/cart"></Link>  */}
           </Box>
         </Toolbar>

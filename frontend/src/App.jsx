@@ -11,7 +11,6 @@ import { Category } from "./Component/Catogery";
 import { Otp } from "./Component/Otp";
 import {Footer} from "./Component/Footer"
 import {Payment} from "./Component/Payment"
-import {ThankYou} from "./Component/ThankYou";
 
 
 
@@ -29,7 +28,6 @@ function App() {
         <Route path="/category/:cat" element={<Category />}></Route>
         <Route path="/otp" element={<Otp />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
-        <Route path="/thankyou" element={<ThankYou />}></Route>
 
       </Routes>
       <Footer />

@@ -7,6 +7,8 @@ import { cart_add } from "../Redux/Cart/action";
 import Box from "@material-ui/core/Box";
 import { Rating } from "@mui/material";
 import StarIcon from "@material-ui/icons/Star";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ProductPage = () => {
   const navigate = useNavigate();
@@ -15,8 +17,19 @@ export const ProductPage = () => {
   const { isAuth } = useSelector((state) => state.login);
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+
   const getLabelText = () => {
     return "Rating";
+  };
+
+  const notify = (e) => {
+    if (isAuth == true) {
+      toast("Added succesfully in the cart...");
+      dispatch(cart_add(e));
+    } else {
+      toast("Please login first..");
+      navigate("/login");
+    }
   };
   return (
     <div>
@@ -55,21 +68,10 @@ export const ProductPage = () => {
                 <b>Description</b>:{e.description}
               </p>
               <h4>Price:{e.price}₹</h4>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => {
-                  if (isAuth==true) {
-                    alert("Added succesfully in the cart...");
-                    dispatch(cart_add(e));
-                  } else {
-                    alert("Please login first..");
-                    navigate("/login");
-                  }
-                }}
-              >
+              <Button variant="contained" color="secondary" onClick={notify}>
                 ADD TO CART
               </Button>
+              <ToastContainer></ToastContainer>
             </div>
           </div>
         ))}

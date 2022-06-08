@@ -18,22 +18,7 @@ import React from "react";
 import {Slider} from "./Slider";
 
 export const Home = () => {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
   const { product } = useSelector((state) => state.product);
   console.log("The product is", product);
   const catogery = [

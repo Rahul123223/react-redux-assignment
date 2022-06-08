@@ -33,7 +33,9 @@ export const Login=()=> {
   const [password, setPass] = useState("");
   const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.login);
-  if (isAuth) {
+
+
+  if (isAuth == true) {
     navigate("/");
   }
 
@@ -48,7 +50,7 @@ export const Login=()=> {
     
   
   dispatch(login_loading());
-    fetch(`https://e-comm1234.herokuapp.com/login `, {
+    fetch(`https://ecom-app-herok.herokuapp.com/login`, {
       method: "POST",
       body: JSON.stringify(useDetails),
       headers: {
@@ -64,6 +66,7 @@ export const Login=()=> {
   };
 
   return (
+    
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -154,4 +157,4 @@ export const Login=()=> {
       </Grid>
     </ThemeProvider>
   );
-          }
+}

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart_get, cart_total, cart_update } from "../Redux/Cart/action";
 import Box from "@mui/material/Box";
 import { Navigate, useNavigate } from "react-router-dom";
-import { Alert } from "@mui/material";
 
 export const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -15,7 +14,7 @@ export const Cart = () => {
 
   const dispatch = useDispatch();
   const getData = () => {
-    fetch(`https://e-comm1234.herokuapp.com/cart`)
+    fetch(`https://ecom-app-herok.herokuapp.com/cart`)
       .then((res) => res.json())
       .then((res) => setCart(res))
       .catch((err) => console.log(err));
@@ -34,7 +33,7 @@ export const Cart = () => {
   console.log("The state is", state);
   const handleremove = (e) => {
     let id = e.target.id;
-    fetch(`https://e-comm1234.herokuapp.com/${id}`, {
+    fetch(`https://ecom-app-herok.herokuapp.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => {

@@ -16,9 +16,7 @@ const register = async (req, res) => {
 
     user = await User.create(req.body);
 
-
     const token = newToken(user);
-
 
     res.send({ user, token });
   } catch (e) {
@@ -38,7 +36,6 @@ const login = async (req, res) => {
       return res.status(400).send({ message: "Please try another email" });
 
     const token = newToken(user);
-
 
     res.send({ user, token });
   } catch (e) {
