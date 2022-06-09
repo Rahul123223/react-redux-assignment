@@ -62,7 +62,7 @@ export function Register() {
     })
       .then((res) => res.json())
       .then((res) => {
-        return navigate("/login");
+        return navigate("/login") ;
       })
       .catch((err) => {
         // alert("something went wrong try again !");

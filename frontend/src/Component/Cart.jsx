@@ -33,7 +33,7 @@ export const Cart = () => {
   console.log("The state is", state);
   const handleremove = (e) => {
     let id = e.target.id;
-    fetch(`https://ecom-app-herok.herokuapp.com/${id}`, {
+    fetch(`https://ecom-app-herok.herokuapp.com/cart/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -45,8 +45,8 @@ export const Cart = () => {
       });
   };
   const checkOut = () => {
-    // alert("Welcome to the checkout page");
-    // <Alert>{"Weccome to the checkout page"}</Alert>
+    alert("Welcome to the checkout page");
+
     navigate("/checkout");
   };
   return (
@@ -105,7 +105,7 @@ export const Cart = () => {
               height: 100,
             }}
           >
-            <Button variant="contained" color="secondary" onClick={checkOut} >
+            <Button variant="contained" color="secondary" onClick={checkOut}>
               Proceed To checkout
             </Button>
           </Box>

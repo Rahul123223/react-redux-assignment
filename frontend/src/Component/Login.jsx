@@ -25,6 +25,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme();
 
@@ -34,11 +36,11 @@ export const Login=()=> {
   const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.login);
 
-
-  if (isAuth == true) {
-    navigate("/");
+  const myAlert = () =>{
+    
+  
   }
-
+  
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -47,10 +49,17 @@ export const Login=()=> {
       email,
       password,
     };
+
+    if (isAuth == true) {
+      toast.success("Login Successful",navigate("/"));
+    }else{
+      toast.error("Invalid Details")
+    }
+    <ToastContainer></ToastContainer>
     
   
   dispatch(login_loading());
-    fetch(`https://ecom-app-herok.herokuapp.com/login`, {
+    fetch("https://ecom-app-herok.herokuapp.com/login", {
       method: "POST",
       body: JSON.stringify(useDetails),
       headers: {
@@ -103,7 +112,6 @@ export const Login=()=> {
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
-                required
                 fullWidth
                 id="email"
                 label="Email Address"
@@ -111,11 +119,11 @@ export const Login=()=> {
                 onChange={(e) => setUser(e.target.value)}
                 value={email}
                 autoComplete="email"
+                required="true"
                 autoFocus
               />
               <TextField
-                margin="normal"
-                required
+                margin="normal"              
                 fullWidth
                 name="password"
                 onChange={(e) => setPass(e.target.value)}
@@ -123,6 +131,7 @@ export const Login=()=> {
                 label="Password"
                 type="password"
                 id="password"
+                required="true"
                 autoComplete="current-password"
               />
               <FormControlLabel

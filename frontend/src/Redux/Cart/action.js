@@ -49,7 +49,7 @@ export const cart_update = (item, sum) => (dispatch) => {
 
 export const cart_add = (payload) => (dispatch) => {
   dispatch(cart_loading());
-  fetch("https://ecom-app-herok.herokuapp.com/cart", {
+  fetch(`https://ecom-app-herok.herokuapp.com/cart`, {
     method: "POST",
     body: JSON.stringify(payload),
     headers: {
