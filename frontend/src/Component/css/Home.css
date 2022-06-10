@@ -5,11 +5,12 @@
   grid-gap: 15px;
   width: 97%;
   margin: auto;
+  margin-left: 50px;
   margin-top: 10px;
   padding: 12px;
 }
 #container > div {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 #show_product {
   display: grid;
@@ -20,9 +21,10 @@
   border: 1px black;
   padding: 10px;
   margin: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid rgb(208, 195, 195);
   cursor: pointer;
+
 }
 img {
   height: 200px;
@@ -39,8 +41,6 @@ img {
 #catogery {
   margin-top: 17px;
   padding: 10px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   height: 95.5%;
   background-color: antiquewhite;
 }

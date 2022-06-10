@@ -18,49 +18,49 @@ export const AddressForm = () => {
   const { total, item } = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
-  const initialValues = { address: "", paddress: "", mobile: "",  city:"" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  // const initialValues = { address: "", paddress: "", mobile: "",  city:"" };
+  // const [formValues, setFormValues] = useState(initialValues);
+  // const [formErrors, setFormErrors] = useState({});
+  // const [isSubmit, setIsSubmit] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormValues({ ...formValues, [name]: value });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setFormErrors(validate(formValues));
+  //   setIsSubmit(true);
+  // };
 
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors]);
-  const validate = (values) => {
-    const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.address) {
-      errors.address = "Address is required!";
-    }
-    if (!values.paddress) {
-      errors.paddress = "permanent address is required!";
-    } 
-    if (!values.mobile) {
-      errors.mobile = "Mobile is required";
-    } 
-    if (!values.city) {
-      errors.city = "city is required";
-    } 
-    return errors;
-  };
+  // useEffect(() => {
+  //   console.log(formErrors);
+  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
+  //     console.log(formValues);
+  //   }
+  // }, [formErrors]);
+  // const validate = (values) => {
+  //   const errors = {};
+  //   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  //   if (!values.address) {
+  //     errors.address = "Address is required!";
+  //   }
+  //   if (!values.paddress) {
+  //     errors.paddress = "permanent address is required!";
+  //   } 
+  //   if (!values.mobile) {
+  //     errors.mobile = "Mobile is required";
+  //   } 
+  //   if (!values.city) {
+  //     errors.city = "city is required";
+  //   } 
+  //   return errors;
+  // };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
       <div id="check_container">
         <div>
           <h2>Shiping information</h2>
@@ -104,7 +104,7 @@ export const AddressForm = () => {
               value={formValues.city}
               onChange={handleChange}
             />
-             <p>{formErrors.city}</p> 
+             <p>{formErrors.city}</p>  */}
             {/* <Select
               label="State"
               id="state"
@@ -130,8 +130,8 @@ export const AddressForm = () => {
               color="secondary"
               required
             /> */}
-          </Stack>
-        </div>
+          {/* </Stack>
+        </div> */}
         <div className="total_pay">
           <h3>Your order</h3>
           <hr />
@@ -155,8 +155,8 @@ export const AddressForm = () => {
           <hr style={{ border: "ridge" }} />
           <button className="fluid ui button blue" onClick={()=>navigate("/payment")}>Submit</button>
      </div>
-      </div>
-      </form>
+      {/* </div>
+      </form> */}
 
     </>
   );

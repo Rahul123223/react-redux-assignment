@@ -1,8 +1,9 @@
 #navbar{
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 95%;
     margin: auto;
+    margin-top: 40px;
     justify-content: space-between;
     padding: 10px;
 }

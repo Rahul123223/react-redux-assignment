@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart_get, cart_total, cart_update } from "../Redux/Cart/action";
 import Box from "@mui/material/Box";
 import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 export const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -37,7 +39,7 @@ export const Cart = () => {
       method: "DELETE",
     })
       .then((res) => {
-        alert("Delete Item Succesfully");
+        toast.success("Delete Item Succesfully");
         window.location.reload();
       })
       .catch((err) => {
@@ -45,9 +47,9 @@ export const Cart = () => {
       });
   };
   const checkOut = () => {
-    alert("Welcome to the checkout page");
+    // alert("Welcome to the checkout page");
 
-    navigate("/checkout");
+    navigate("/payment");
   };
   return (
     <div id="cart_container">
@@ -85,8 +87,8 @@ export const Cart = () => {
                   <img width={"15%"} height={"50%"} src={e.image} alt="" />
                 </div>
                 <div>
-                  <h5>Title:{e.title}</h5>
-                  <h5>Price{e.price}</h5>
+                  <h5>Title : {e.title}</h5>
+                  <h3>Price :{e.price}</h3>
                 </div>
                 <hr />
               </div>
@@ -106,7 +108,7 @@ export const Cart = () => {
             }}
           >
             <Button variant="contained" color="secondary" onClick={checkOut}>
-              Proceed To checkout
+              Proceed To Payment
             </Button>
           </Box>
         </div>

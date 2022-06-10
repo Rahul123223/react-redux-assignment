@@ -60,18 +60,36 @@ export const ProductPage = () => {
                 variant="contained"
                 color="secondary"
                 onClick={() => {
-                  if (isAuth==true) {
+                  if (isAuth == true) {
                     toast.success("Added succesfully in the cart...");
                     dispatch(cart_add(e));
                   } else {
-                    toast.error("Please login first..");
+                    toast.error("Please login first..", {
+                      position: "top-center",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    });
                     navigate("/login");
                   }
                 }}
               >
                 ADD TO CART
               </Button>
-              <ToastContainer/>
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
             </div>
           </div>
         ))}
